@@ -8,6 +8,7 @@ import React from 'react';
  * @param param0
  * @returns
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const InfoCard: React.FC<{
   title: string;
   index: number;
@@ -116,7 +117,7 @@ const Welcome: React.FC = () => {
               color: token.colorTextHeading,
             }}
           >
-            Ant Design Pro
+            Welcome Deena
           </div>
           <p
             style={{
@@ -128,7 +129,7 @@ const Welcome: React.FC = () => {
               width: '65%',
             }}
           >
-            Ant Design Pro Ant Design 和 ProComponents
+            {/* Ant Design Pro Ant Design 和 ProComponents */}
           </p>
           <div
             style={{
@@ -136,8 +137,7 @@ const Welcome: React.FC = () => {
               flexWrap: 'wrap',
               gap: 16,
             }}
-          >
-          </div>
+          ></div>
         </div>
       </Card>
     </PageContainer>

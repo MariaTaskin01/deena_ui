@@ -1,23 +1,18 @@
 import { Footer } from '@/components';
 import { login } from '@/services/ant-design-pro/api';
-import { getFakeCaptcha } from '@/services/ant-design-pro/login';
+
 import {
   AlipayCircleOutlined,
   LockOutlined,
-  MobileOutlined,
   TaobaoCircleOutlined,
   UserOutlined,
   WeiboCircleOutlined,
 } from '@ant-design/icons';
-import {
-  LoginForm,
-  ProFormCaptcha,
-  ProFormCheckbox,
-  ProFormText,
-} from '@ant-design/pro-components';
+import { LoginForm, ProForm, ProFormText } from '@ant-design/pro-components';
 import { FormattedMessage, Helmet, history, SelectLang, useIntl, useModel } from '@umijs/max';
 import { Alert, message, Tabs } from 'antd';
 import { createStyles } from 'antd-style';
+import Button from 'antd/lib/button';
 import React, { useState } from 'react';
 import { flushSync } from 'react-dom';
 import Settings from '../../../../config/defaultSettings';
@@ -97,7 +92,7 @@ const LoginMessage: React.FC<{
 
 const Login: React.FC = () => {
   const [userLoginState, setUserLoginState] = useState<API.LoginResult>({});
-  const [type, setType] = useState<string>('account');
+  const [type, setType] = useState<string>('login');
   const { initialState, setInitialState } = useModel('@@initialState');
   const { styles } = useStyles();
   const intl = useIntl();
@@ -167,7 +162,7 @@ const Login: React.FC = () => {
             maxWidth: '75vw',
           }}
           logo={<img alt="logo" src="/logo.svg" />}
-          title="Ant Design"
+          title="Deena"
           subTitle={intl.formatMessage({ id: 'pages.layouts.userLayout.title' })}
           initialValues={{
             autoLogin: true,
@@ -175,11 +170,22 @@ const Login: React.FC = () => {
           actions={[
             <FormattedMessage
               key="loginWith"
-              id="pages.login.loginWith"
+              id="pages.registration.submit"
               defaultMessage="其他登录方式"
             />,
             <ActionIcons key="icons" />,
           ]}
+          // Custom submitter for the registration tab
+          submitter={{
+            searchConfig: {
+              // If type is "registration", change the button text to "Register"
+              submitText: type === 'registration' ? 'Register Account' : 'Login',
+            },
+            render: (_, doms) => {
+              // Only render the submit button, exclude reset
+              return [doms[0]]; // dom[0] is usually the submit button, dom[1] might be the reset button
+            }, // Keep default rendering for the button
+          }}
           onFinish={async (values) => {
             await handleSubmit(values as API.LoginParams);
           }}
@@ -190,14 +196,14 @@ const Login: React.FC = () => {
             centered
             items={[
               {
-                key: 'account',
+                key: 'login',
                 label: intl.formatMessage({
                   id: 'pages.login.accountLogin.tab',
                   defaultMessage: '账户密码登录',
                 }),
               },
               {
-                key: 'mobile',
+                key: 'registration',
                 label: intl.formatMessage({
                   id: 'pages.login.phoneLogin.tab',
                   defaultMessage: '手机号登录',
@@ -206,7 +212,7 @@ const Login: React.FC = () => {
             ]}
           />
 
-          {status === 'error' && loginType === 'account' && (
+          {status === 'error' && loginType === 'login' && (
             <LoginMessage
               content={intl.formatMessage({
                 id: 'pages.login.accountLogin.errorMessage',
@@ -214,7 +220,7 @@ const Login: React.FC = () => {
               })}
             />
           )}
-          {type === 'account' && (
+          {type === 'login' && (
             <>
               <ProFormText
                 name="username"
@@ -263,17 +269,19 @@ const Login: React.FC = () => {
             </>
           )}
 
-          {status === 'error' && loginType === 'mobile' && <LoginMessage content="验证码错误" />}
-          {type === 'mobile' && (
+          {status === 'error' && loginType === 'registration' && (
+            <LoginMessage content="验证码错误" />
+          )}
+          {type === 'registration' && (
             <>
               <ProFormText
                 fieldProps={{
                   size: 'large',
-                  prefix: <MobileOutlined />,
+                  // prefix: <MobileOutlined />,
                 }}
-                name="mobile"
+                name="registration"
                 placeholder={intl.formatMessage({
-                  id: 'pages.login.phoneNumber.placeholder',
+                  id: 'pages.registration.institute.placeholder',
                   defaultMessage: '手机号',
                 })}
                 rules={[
@@ -281,23 +289,23 @@ const Login: React.FC = () => {
                     required: true,
                     message: (
                       <FormattedMessage
-                        id="pages.login.phoneNumber.required"
+                        id="pages.registration.institute.required"
                         defaultMessage="请输入手机号！"
                       />
                     ),
                   },
-                  {
-                    pattern: /^1\d{10}$/,
-                    message: (
-                      <FormattedMessage
-                        id="pages.login.phoneNumber.invalid"
-                        defaultMessage="手机号格式错误！"
-                      />
-                    ),
-                  },
+                  // {
+                  //   pattern: /^1\d{10}$/,
+                  //   message: (
+                  //     <FormattedMessage
+                  //       id="pages.login.phoneNumber.invalid"
+                  //       defaultMessage="手机号格式错误！"
+                  //     />
+                  //   ),
+                  // },
                 ]}
               />
-              <ProFormCaptcha
+              {/* <ProFormCaptcha
                 fieldProps={{
                   size: 'large',
                   prefix: <LockOutlined />,
@@ -342,25 +350,191 @@ const Login: React.FC = () => {
                   }
                   message.success('获取验证码成功！验证码为：1234');
                 }}
+              /> */}
+              <ProFormText
+                fieldProps={{
+                  size: 'large',
+                  // prefix: <MobileOutlined />,
+                }}
+                name="registration"
+                placeholder={intl.formatMessage({
+                  id: 'pages.registration.branch.placeholder',
+                  defaultMessage: '手机号',
+                })}
+                rules={[
+                  {
+                    required: true,
+                    message: (
+                      <FormattedMessage
+                        id="pages.registration.branch.required"
+                        defaultMessage="请输入手机号！"
+                      />
+                    ),
+                  },
+                ]}
+              />
+              <ProFormText
+                fieldProps={{
+                  size: 'large',
+                  // prefix: <MobileOutlined />,
+                }}
+                name="registration"
+                placeholder={intl.formatMessage({
+                  id: 'pages.registration.username.placeholder',
+                  defaultMessage: '手机号',
+                })}
+                rules={[
+                  {
+                    required: true,
+                    message: (
+                      <FormattedMessage
+                        id="pages.registration.username.required"
+                        defaultMessage="请输入手机号！"
+                      />
+                    ),
+                  },
+                ]}
+              />
+              <ProFormText
+                fieldProps={{
+                  size: 'large',
+                  // prefix: <MobileOutlined />,
+                }}
+                name="registration"
+                placeholder={intl.formatMessage({
+                  id: 'pages.registration.email.placeholder',
+                  defaultMessage: '手机号',
+                })}
+                rules={[
+                  {
+                    required: true,
+                    message: (
+                      <FormattedMessage
+                        id="pages.registration.email.required"
+                        defaultMessage="请输入手机号！"
+                      />
+                    ),
+                  },
+                ]}
+              />
+              <ProFormText
+                fieldProps={{
+                  size: 'large',
+                  // prefix: <MobileOutlined />,
+                }}
+                name="registration"
+                placeholder={intl.formatMessage({
+                  id: 'pages.registration.studentName.placeholder',
+                  defaultMessage: '手机号',
+                })}
+                rules={[
+                  {
+                    required: true,
+                    message: (
+                      <FormattedMessage
+                        id="pages.registration.studentName.required"
+                        defaultMessage="请输入手机号！"
+                      />
+                    ),
+                  },
+                ]}
+              />
+              <ProFormText
+                fieldProps={{
+                  size: 'large',
+                  // prefix: <MobileOutlined />,
+                }}
+                name="registration"
+                placeholder={intl.formatMessage({
+                  id: 'pages.registration.phone.placeholder',
+                  defaultMessage: '手机号',
+                })}
+                rules={[
+                  {
+                    required: true,
+                    message: (
+                      <FormattedMessage
+                        id="pages.registration.phone.required"
+                        defaultMessage="请输入手机号！"
+                      />
+                    ),
+                  },
+                ]}
+              />
+              <ProFormText
+                fieldProps={{
+                  size: 'large',
+                  // prefix: <MobileOutlined />,
+                }}
+                name="registration"
+                placeholder={intl.formatMessage({
+                  id: 'pages.registration.roll.placeholder',
+                  defaultMessage: '手机号',
+                })}
+                rules={[
+                  {
+                    required: true,
+                    message: (
+                      <FormattedMessage
+                        id="pages.registration.roll.required"
+                        defaultMessage="请输入手机号！"
+                      />
+                    ),
+                  },
+                ]}
+              />
+              <ProFormText
+                fieldProps={{
+                  size: 'large',
+                  // prefix: <MobileOutlined />,
+                }}
+                name="registration"
+                placeholder={intl.formatMessage({
+                  id: 'pages.registration.password.placeholder',
+                  defaultMessage: '手机号',
+                })}
+                rules={[
+                  {
+                    required: true,
+                    message: (
+                      <FormattedMessage
+                        id="pages.registration.password.required"
+                        defaultMessage="请输入手机号！"
+                      />
+                    ),
+                  },
+                ]}
+              />
+              <ProFormText
+                fieldProps={{
+                  size: 'large',
+                  // prefix: <MobileOutlined />,
+                }}
+                name="registration"
+                placeholder={intl.formatMessage({
+                  id: 'pages.registration.confirmPassword.placeholder',
+                  defaultMessage: '手机号',
+                })}
+                rules={[
+                  {
+                    required: true,
+                    message: (
+                      <FormattedMessage
+                        id="pages.registration.confirmPassword.required"
+                        defaultMessage="请输入手机号！"
+                      />
+                    ),
+                  },
+                ]}
               />
             </>
           )}
-          <div
-            style={{
-              marginBottom: 24,
-            }}
-          >
-            <ProFormCheckbox noStyle name="autoLogin">
-              <FormattedMessage id="pages.login.rememberMe" defaultMessage="自动登录" />
-            </ProFormCheckbox>
-            <a
-              style={{
-                float: 'right',
-              }}
-            >
-              <FormattedMessage id="pages.login.forgotPassword" defaultMessage="忘记密码" />
-            </a>
-          </div>
+
+          <ProForm.Item>
+            <Button type="primary" htmlType="submit" style={{ width: '100%' }}>
+              {type === 'registration' ? 'Register Account' : 'Login'}
+            </Button>
+          </ProForm.Item>
         </LoginForm>
       </div>
       <Footer />

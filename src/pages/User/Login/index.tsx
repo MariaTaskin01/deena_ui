@@ -279,8 +279,8 @@ const Login: React.FC = () => {
             <div className="grid grid-cols-2 gap-2 px-2 py-2">
                <ProFormText 
                 fieldProps={{
-                  size: 'large',
-                  // prefix: <MobileOutlined />,
+                  height: '100vh',
+                  width: '90vw',
                   style: { width: '100%'},
                 }}
                 name="institute"

@@ -297,7 +297,7 @@ const Login: React.FC = () => {
                     },
                   ]}
                 />
-                ] /{'>'}
+
                 <ProFormText
                   fieldProps={{
                     size: 'large',

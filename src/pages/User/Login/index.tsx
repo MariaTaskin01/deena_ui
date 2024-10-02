@@ -183,7 +183,7 @@ const Login: React.FC = () => {
             },
             render: (_, doms) => {
               // Only render the submit button, exclude reset
-              return [doms[0]]; // dom[0] is usually the submit button, dom[1] might be the reset button
+              return [doms[1]]; // dom[0] is usually the submit button, dom[1] might be the reset button
             }, // Keep default rendering for the button
           }}
           onFinish={async (values) => {

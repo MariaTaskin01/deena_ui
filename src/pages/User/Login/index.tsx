@@ -45,6 +45,7 @@ const useStyles = createStyles(({ token }) => {
       display: 'flex',
       flexDirection: 'column',
       height: '100vh',
+      margin: '0 auto',
       overflow: 'auto',
       backgroundImage:
         "url('https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/V-_oS6r-i7wAAAAAAAAAAAAAFl94AQBr')",
@@ -161,7 +162,7 @@ const Login: React.FC = () => {
             minWidth: 280,
             maxWidth: '75vw',
           }}
-          logo={<img alt="logo" src="/logo.svg" />}
+          logo={<img alt="logo" src="/logo.png"/>}
           title="Deena"
           subTitle={intl.formatMessage({ id: 'pages.layouts.userLayout.title' })}
           initialValues={{
@@ -230,7 +231,7 @@ const Login: React.FC = () => {
                 }}
                 placeholder={intl.formatMessage({
                   id: 'pages.login.username.placeholder',
-                  defaultMessage: '用户名: admin or user',
+                  defaultMessage: 'admin or user',
                 })}
                 rules={[
                   {
@@ -278,8 +279,9 @@ const Login: React.FC = () => {
             <div className="grid grid-cols-2 gap-2 px-2 py-2">
                <ProFormText 
                 fieldProps={{
-                  size: 'large',
-                  // prefix: <MobileOutlined />,
+                  height: '100vh',
+                  width: '90vw',
+                  style: { width: '100%'},
                 }}
                 name="institute"
                 placeholder={intl.formatMessage({
@@ -303,6 +305,7 @@ const Login: React.FC = () => {
                 fieldProps={{
                   size: 'large',
                   // prefix: <MobileOutlined />,
+                  style: { width: '100%'},
                 }}
                 name="branch"
                 placeholder={intl.formatMessage({
@@ -325,6 +328,7 @@ const Login: React.FC = () => {
                 fieldProps={{
                   size: 'large',
                   // prefix: <MobileOutlined />,
+                  style: { width: '100%'},
                 }}
                 name="username"
                 placeholder={intl.formatMessage({
@@ -347,6 +351,7 @@ const Login: React.FC = () => {
                 fieldProps={{
                   size: 'large',
                   // prefix: <MobileOutlined />,
+                  style: { width: '100%'},
                 }}
                 name="email"
                 placeholder={intl.formatMessage({
@@ -369,6 +374,7 @@ const Login: React.FC = () => {
                 fieldProps={{
                   size: 'large',
                   // prefix: <MobileOutlined />,
+                  style: { width: '100%'},
                 }}
                 name="studentName"
                 placeholder={intl.formatMessage({
@@ -391,6 +397,7 @@ const Login: React.FC = () => {
                 fieldProps={{
                   size: 'large',
                   // prefix: <MobileOutlined />,
+                  style: { width: '100%'},
                 }}
                 name="phone"
                 placeholder={intl.formatMessage({
@@ -413,6 +420,7 @@ const Login: React.FC = () => {
                 fieldProps={{
                   size: 'large',
                   // prefix: <MobileOutlined />,
+                  style: { width: '100%'},
                 }}
                 name="roll"
                 placeholder={intl.formatMessage({
@@ -435,6 +443,7 @@ const Login: React.FC = () => {
                 fieldProps={{
                   size: 'large',
                   // prefix: <MobileOutlined />,
+                  style: { width: '100%'},
                 }}
                 name="password"
                 placeholder={intl.formatMessage({
@@ -460,6 +469,7 @@ const Login: React.FC = () => {
                 fieldProps={{
                   size: 'large',
                   // prefix: <MobileOutlined />,
+                  
                 }}
                 name="confirmPassword"
                 placeholder={intl.formatMessage({

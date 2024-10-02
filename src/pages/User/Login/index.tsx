@@ -183,7 +183,7 @@ const Login: React.FC = () => {
             },
             render: (_, doms) => {
               // Only render the submit button, exclude reset
-              return [doms[0]]; // dom[0] is usually the submit button, dom[1] might be the reset button
+              return [doms[1]]; // dom[0] is usually the submit button, dom[1] might be the reset button
             }, // Keep default rendering for the button
           }}
           onFinish={async (values) => {
@@ -279,7 +279,7 @@ const Login: React.FC = () => {
                   size: 'large',
                   // prefix: <MobileOutlined />,
                 }}
-                name="registration"
+                name="institute"
                 placeholder={intl.formatMessage({
                   id: 'pages.registration.institute.placeholder',
                   defaultMessage: '手机号',
@@ -294,69 +294,15 @@ const Login: React.FC = () => {
                       />
                     ),
                   },
-                  // {
-                  //   pattern: /^1\d{10}$/,
-                  //   message: (
-                  //     <FormattedMessage
-                  //       id="pages.login.phoneNumber.invalid"
-                  //       defaultMessage="手机号格式错误！"
-                  //     />
-                  //   ),
-                  // },
                 ]}
               />
-              {/* <ProFormCaptcha
-                fieldProps={{
-                  size: 'large',
-                  prefix: <LockOutlined />,
-                }}
-                captchaProps={{
-                  size: 'large',
-                }}
-                placeholder={intl.formatMessage({
-                  id: 'pages.login.captcha.placeholder',
-                  defaultMessage: '请输入验证码',
-                })}
-                captchaTextRender={(timing, count) => {
-                  if (timing) {
-                    return `${count} ${intl.formatMessage({
-                      id: 'pages.getCaptchaSecondText',
-                      defaultMessage: '获取验证码',
-                    })}`;
-                  }
-                  return intl.formatMessage({
-                    id: 'pages.login.phoneLogin.getVerificationCode',
-                    defaultMessage: '获取验证码',
-                  });
-                }}
-                name="captcha"
-                rules={[
-                  {
-                    required: true,
-                    message: (
-                      <FormattedMessage
-                        id="pages.login.captcha.required"
-                        defaultMessage="请输入验证码！"
-                      />
-                    ),
-                  },
-                ]}
-                onGetCaptcha={async (phone) => {
-                  const result = await getFakeCaptcha({
-                    phone,
-                  });
-                  if (!result) {
-                    return;
-                  }
-                  message.success('获取验证码成功！验证码为：1234');
-                }}
-              /> */}
+
               <ProFormText
                 fieldProps={{
                   size: 'large',
                   // prefix: <MobileOutlined />,
                 }}
-                name="registration"
+                name="branch"
                 placeholder={intl.formatMessage({
                   id: 'pages.registration.branch.placeholder',
                   defaultMessage: '手机号',
@@ -378,7 +324,7 @@ const Login: React.FC = () => {
                   size: 'large',
                   // prefix: <MobileOutlined />,
                 }}
-                name="registration"
+                name="username"
                 placeholder={intl.formatMessage({
                   id: 'pages.registration.username.placeholder',
                   defaultMessage: '手机号',
@@ -400,7 +346,7 @@ const Login: React.FC = () => {
                   size: 'large',
                   // prefix: <MobileOutlined />,
                 }}
-                name="registration"
+                name="email"
                 placeholder={intl.formatMessage({
                   id: 'pages.registration.email.placeholder',
                   defaultMessage: '手机号',
@@ -422,7 +368,7 @@ const Login: React.FC = () => {
                   size: 'large',
                   // prefix: <MobileOutlined />,
                 }}
-                name="registration"
+                name="studentName"
                 placeholder={intl.formatMessage({
                   id: 'pages.registration.studentName.placeholder',
                   defaultMessage: '手机号',
@@ -444,7 +390,7 @@ const Login: React.FC = () => {
                   size: 'large',
                   // prefix: <MobileOutlined />,
                 }}
-                name="registration"
+                name="phone"
                 placeholder={intl.formatMessage({
                   id: 'pages.registration.phone.placeholder',
                   defaultMessage: '手机号',
@@ -466,7 +412,7 @@ const Login: React.FC = () => {
                   size: 'large',
                   // prefix: <MobileOutlined />,
                 }}
-                name="registration"
+                name="roll"
                 placeholder={intl.formatMessage({
                   id: 'pages.registration.roll.placeholder',
                   defaultMessage: '手机号',
@@ -488,7 +434,7 @@ const Login: React.FC = () => {
                   size: 'large',
                   // prefix: <MobileOutlined />,
                 }}
-                name="registration"
+                name="password"
                 placeholder={intl.formatMessage({
                   id: 'pages.registration.password.placeholder',
                   defaultMessage: '手机号',
@@ -510,7 +456,7 @@ const Login: React.FC = () => {
                   size: 'large',
                   // prefix: <MobileOutlined />,
                 }}
-                name="registration"
+                name="confirmPassword"
                 placeholder={intl.formatMessage({
                   id: 'pages.registration.confirmPassword.placeholder',
                   defaultMessage: '手机号',
@@ -531,7 +477,7 @@ const Login: React.FC = () => {
           )}
 
           <ProForm.Item>
-            <Button type="primary" htmlType="submit" style={{ width: '100%' }}>
+            <Button className="" type="primary" htmlType="submit" style={{ width: '100%' }}>
               {type === 'registration' ? 'Register Account' : 'Login'}
             </Button>
           </ProForm.Item>

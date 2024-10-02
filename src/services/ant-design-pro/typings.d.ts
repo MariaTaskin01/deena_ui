@@ -68,6 +68,17 @@ declare namespace API {
     type?: string;
   };
 
+  type RegistrationParams = {
+    institute?: string;
+    branch?: string;
+    userName?: string;
+    email?: string;
+    institute?: string;
+    institute?: string;
+    institute?: string;
+    institute?: string;
+  };
+
   type ErrorResponse = {
     /** 业务约定的错误码 */
     errorCode: string;
@@ -98,4 +109,5 @@ declare namespace API {
     description?: string;
     type?: NoticeIconItemType;
   };
+  type;
 }

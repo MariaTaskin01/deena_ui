@@ -274,7 +274,9 @@ const Login: React.FC = () => {
           )}
           {type === 'registration' && (
             <>
-              <ProFormText
+
+            <div className="grid grid-cols-2 gap-2 px-2 py-2">
+               <ProFormText 
                 fieldProps={{
                   size: 'large',
                   // prefix: <MobileOutlined />,
@@ -318,7 +320,7 @@ const Login: React.FC = () => {
                     ),
                   },
                 ]}
-              />
+              /> 
               <ProFormText
                 fieldProps={{
                   size: 'large',
@@ -451,7 +453,10 @@ const Login: React.FC = () => {
                   },
                 ]}
               />
-              <ProFormText
+
+            </div>
+
+            <ProFormText
                 fieldProps={{
                   size: 'large',
                   // prefix: <MobileOutlined />,
@@ -475,7 +480,6 @@ const Login: React.FC = () => {
               />
             </>
           )}
-
           <ProForm.Item>
             <Button className="" type="primary" htmlType="submit" style={{ width: '100%' }}>
               {type === 'registration' ? 'Register Account' : 'Login'}

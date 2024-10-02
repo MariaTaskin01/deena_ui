@@ -2,6 +2,11 @@
  * loading 占位
  * 解决首次加载时白屏的问题
  */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
  (function () {
   const _root = document.querySelector('#root');
   if (_root && _root.innerHTML === '') {

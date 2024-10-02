@@ -162,7 +162,7 @@ const Login: React.FC = () => {
             minWidth: 280,
             maxWidth: '75vw',
           }}
-          logo={<img alt="logo" src="/logo.png"/>}
+          logo={<img alt="logo" src="/logo.png" />}
           title="Deena"
           subTitle={intl.formatMessage({ id: 'pages.layouts.userLayout.title' })}
           initialValues={{
@@ -275,201 +275,198 @@ const Login: React.FC = () => {
           )}
           {type === 'registration' && (
             <>
+              <div className="grid grid-cols-2 gap-2 px-2 py-2">
+                <ProFormText
+                  fieldProps={{
+                    height: '100vh',
+                    width: '90vw',
+                    style: { width: '100%' },
+                  }}
+                  name="institute"
+                  placeholder={intl.formatMessage({
+                    id: 'pages.registration.institute.placeholder',
+                    defaultMessage: '手机号',
+                  })}
+                  rules={[
+                    {
+                      required: true,
+                      message: (
+                        <FormattedMessage
+                          id="pages.registration.institute.required"
+                          defaultMessage="请输入手机号！"
+                        />
+                      ),
+                    },
+                  ]}
+                />
 
-            <div className="grid grid-cols-2 gap-2 px-2 py-2">
-               <ProFormText 
-                fieldProps={{
-                  height: '100vh',
-                  width: '90vw',
-                  style: { width: '100%'},
-                }}
-                name="institute"
-                placeholder={intl.formatMessage({
-                  id: 'pages.registration.institute.placeholder',
-                  defaultMessage: '手机号',
-                })}
-                rules={[
-                  {
-                    required: true,
-                    message: (
-                      <FormattedMessage
-                        id="pages.registration.institute.required"
-                        defaultMessage="请输入手机号！"
-                      />
-                    ),
-                  },
-                ]}
-              />
+                <ProFormText
+                  fieldProps={{
+                    size: 'large',
+                    // prefix: <MobileOutlined />,
+                    style: { width: '100%' },
+                  }}
+                  name="branch"
+                  placeholder={intl.formatMessage({
+                    id: 'pages.registration.branch.placeholder',
+                    defaultMessage: '手机号',
+                  })}
+                  rules={[
+                    {
+                      required: true,
+                      message: (
+                        <FormattedMessage
+                          id="pages.registration.branch.required"
+                          defaultMessage="请输入手机号！"
+                        />
+                      ),
+                    },
+                  ]}
+                />
+                <ProFormText
+                  fieldProps={{
+                    size: 'large',
+                    // prefix: <MobileOutlined />,
+                    style: { width: '100%' },
+                  }}
+                  name="username"
+                  placeholder={intl.formatMessage({
+                    id: 'pages.registration.username.placeholder',
+                    defaultMessage: '手机号',
+                  })}
+                  rules={[
+                    {
+                      required: true,
+                      message: (
+                        <FormattedMessage
+                          id="pages.registration.username.required"
+                          defaultMessage="请输入手机号！"
+                        />
+                      ),
+                    },
+                  ]}
+                />
+                <ProFormText
+                  fieldProps={{
+                    size: 'large',
+                    // prefix: <MobileOutlined />,
+                    style: { width: '100%' },
+                  }}
+                  name="email"
+                  placeholder={intl.formatMessage({
+                    id: 'pages.registration.email.placeholder',
+                    defaultMessage: '手机号',
+                  })}
+                  rules={[
+                    {
+                      required: true,
+                      message: (
+                        <FormattedMessage
+                          id="pages.registration.email.required"
+                          defaultMessage="请输入手机号！"
+                        />
+                      ),
+                    },
+                  ]}
+                />
+                <ProFormText
+                  fieldProps={{
+                    size: 'large',
+                    // prefix: <MobileOutlined />,
+                    style: { width: '100%' },
+                  }}
+                  name="studentName"
+                  placeholder={intl.formatMessage({
+                    id: 'pages.registration.studentName.placeholder',
+                    defaultMessage: '手机号',
+                  })}
+                  rules={[
+                    {
+                      required: true,
+                      message: (
+                        <FormattedMessage
+                          id="pages.registration.studentName.required"
+                          defaultMessage="请输入手机号！"
+                        />
+                      ),
+                    },
+                  ]}
+                />
+                <ProFormText
+                  fieldProps={{
+                    size: 'large',
+                    // prefix: <MobileOutlined />,
+                    style: { width: '100%' },
+                  }}
+                  name="phone"
+                  placeholder={intl.formatMessage({
+                    id: 'pages.registration.phone.placeholder',
+                    defaultMessage: '手机号',
+                  })}
+                  rules={[
+                    {
+                      required: true,
+                      message: (
+                        <FormattedMessage
+                          id="pages.registration.phone.required"
+                          defaultMessage="请输入手机号！"
+                        />
+                      ),
+                    },
+                  ]}
+                />
+                <ProFormText
+                  fieldProps={{
+                    size: 'large',
+                    // prefix: <MobileOutlined />,
+                    style: { width: '100%' },
+                  }}
+                  name="roll"
+                  placeholder={intl.formatMessage({
+                    id: 'pages.registration.roll.placeholder',
+                    defaultMessage: '手机号',
+                  })}
+                  rules={[
+                    {
+                      required: true,
+                      message: (
+                        <FormattedMessage
+                          id="pages.registration.roll.required"
+                          defaultMessage="请输入手机号！"
+                        />
+                      ),
+                    },
+                  ]}
+                />
+                <ProFormText
+                  fieldProps={{
+                    size: 'large',
+                    // prefix: <MobileOutlined />,
+                    style: { width: '100%' },
+                  }}
+                  name="password"
+                  placeholder={intl.formatMessage({
+                    id: 'pages.registration.password.placeholder',
+                    defaultMessage: '手机号',
+                  })}
+                  rules={[
+                    {
+                      required: true,
+                      message: (
+                        <FormattedMessage
+                          id="pages.registration.password.required"
+                          defaultMessage="请输入手机号！"
+                        />
+                      ),
+                    },
+                  ]}
+                />
+              </div>
 
               <ProFormText
                 fieldProps={{
                   size: 'large',
                   // prefix: <MobileOutlined />,
-                  style: { width: '100%'},
-                }}
-                name="branch"
-                placeholder={intl.formatMessage({
-                  id: 'pages.registration.branch.placeholder',
-                  defaultMessage: '手机号',
-                })}
-                rules={[
-                  {
-                    required: true,
-                    message: (
-                      <FormattedMessage
-                        id="pages.registration.branch.required"
-                        defaultMessage="请输入手机号！"
-                      />
-                    ),
-                  },
-                ]}
-              /> 
-              <ProFormText
-                fieldProps={{
-                  size: 'large',
-                  // prefix: <MobileOutlined />,
-                  style: { width: '100%'},
-                }}
-                name="username"
-                placeholder={intl.formatMessage({
-                  id: 'pages.registration.username.placeholder',
-                  defaultMessage: '手机号',
-                })}
-                rules={[
-                  {
-                    required: true,
-                    message: (
-                      <FormattedMessage
-                        id="pages.registration.username.required"
-                        defaultMessage="请输入手机号！"
-                      />
-                    ),
-                  },
-                ]}
-              />
-              <ProFormText
-                fieldProps={{
-                  size: 'large',
-                  // prefix: <MobileOutlined />,
-                  style: { width: '100%'},
-                }}
-                name="email"
-                placeholder={intl.formatMessage({
-                  id: 'pages.registration.email.placeholder',
-                  defaultMessage: '手机号',
-                })}
-                rules={[
-                  {
-                    required: true,
-                    message: (
-                      <FormattedMessage
-                        id="pages.registration.email.required"
-                        defaultMessage="请输入手机号！"
-                      />
-                    ),
-                  },
-                ]}
-              />
-              <ProFormText
-                fieldProps={{
-                  size: 'large',
-                  // prefix: <MobileOutlined />,
-                  style: { width: '100%'},
-                }}
-                name="studentName"
-                placeholder={intl.formatMessage({
-                  id: 'pages.registration.studentName.placeholder',
-                  defaultMessage: '手机号',
-                })}
-                rules={[
-                  {
-                    required: true,
-                    message: (
-                      <FormattedMessage
-                        id="pages.registration.studentName.required"
-                        defaultMessage="请输入手机号！"
-                      />
-                    ),
-                  },
-                ]}
-              />
-              <ProFormText
-                fieldProps={{
-                  size: 'large',
-                  // prefix: <MobileOutlined />,
-                  style: { width: '100%'},
-                }}
-                name="phone"
-                placeholder={intl.formatMessage({
-                  id: 'pages.registration.phone.placeholder',
-                  defaultMessage: '手机号',
-                })}
-                rules={[
-                  {
-                    required: true,
-                    message: (
-                      <FormattedMessage
-                        id="pages.registration.phone.required"
-                        defaultMessage="请输入手机号！"
-                      />
-                    ),
-                  },
-                ]}
-              />
-              <ProFormText
-                fieldProps={{
-                  size: 'large',
-                  // prefix: <MobileOutlined />,
-                  style: { width: '100%'},
-                }}
-                name="roll"
-                placeholder={intl.formatMessage({
-                  id: 'pages.registration.roll.placeholder',
-                  defaultMessage: '手机号',
-                })}
-                rules={[
-                  {
-                    required: true,
-                    message: (
-                      <FormattedMessage
-                        id="pages.registration.roll.required"
-                        defaultMessage="请输入手机号！"
-                      />
-                    ),
-                  },
-                ]}
-              />
-              <ProFormText
-                fieldProps={{
-                  size: 'large',
-                  // prefix: <MobileOutlined />,
-                  style: { width: '100%'},
-                }}
-                name="password"
-                placeholder={intl.formatMessage({
-                  id: 'pages.registration.password.placeholder',
-                  defaultMessage: '手机号',
-                })}
-                rules={[
-                  {
-                    required: true,
-                    message: (
-                      <FormattedMessage
-                        id="pages.registration.password.required"
-                        defaultMessage="请输入手机号！"
-                      />
-                    ),
-                  },
-                ]}
-              />
-
-            </div>
-
-            <ProFormText
-                fieldProps={{
-                  size: 'large',
-                  // prefix: <MobileOutlined />,
-                  
                 }}
                 name="confirmPassword"
                 placeholder={intl.formatMessage({

@@ -280,51 +280,6 @@ const Login: React.FC = () => {
                     size: 'large',
                     // prefix: <MobileOutlined />,
                   }}
-                  name="institute"
-                  placeholder={intl.formatMessage({
-                    id: 'pages.registration.institute.placeholder',
-                    defaultMessage: '手机号',
-                  })}
-                  rules={[
-                    {
-                      required: true,
-                      message: (
-                        <FormattedMessage
-                          id="pages.registration.institute.required"
-                          defaultMessage="请输入手机号！"
-                        />
-                      ),
-                    },
-                  ]}
-                />
-
-                <ProFormText
-                  fieldProps={{
-                    size: 'large',
-                    // prefix: <MobileOutlined />,
-                  }}
-                  name="branch"
-                  placeholder={intl.formatMessage({
-                    id: 'pages.registration.branch.placeholder',
-                    defaultMessage: '手机号',
-                  })}
-                  rules={[
-                    {
-                      required: true,
-                      message: (
-                        <FormattedMessage
-                          id="pages.registration.branch.required"
-                          defaultMessage="请输入手机号！"
-                        />
-                      ),
-                    },
-                  ]}
-                />
-                <ProFormText
-                  fieldProps={{
-                    size: 'large',
-                    // prefix: <MobileOutlined />,
-                  }}
                   name="username"
                   placeholder={intl.formatMessage({
                     id: 'pages.registration.username.placeholder',

@@ -1,5 +1,7 @@
 import { Footer } from '@/components';
 import { login } from '@/services/ant-design-pro/api';
+import { UserAddOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 import {
   AlipayCircleOutlined,
@@ -168,14 +170,14 @@ const Login: React.FC = () => {
           initialValues={{
             autoLogin: true,
           }}
-          actions={[
-            <FormattedMessage
-              key="loginWith"
-              id="pages.registration.submit"
-              defaultMessage="其他登录方式"
-            />,
-            <ActionIcons key="icons" />,
-          ]}
+          // actions={[
+          //   <FormattedMessage
+          //     key="loginWith"
+          //     id="pages.registration.submit"
+          //     defaultMessage="其他登录方式"
+          //   />,
+          //   // <ActionIcons key="icons" />,
+          // ]}
           // Custom submitter for the registration tab
           submitter={{
             searchConfig: {
@@ -478,13 +480,28 @@ const Login: React.FC = () => {
           )}
           <ProForm.Item>
             <Button
-              className="flex justify-center"
+              className="centered-button"
               type="primary"
               htmlType="submit"
-              style={{ width: '100%', height: '200%' }}
+              icon={<UserAddOutlined />}
+              style={{
+                width: '100%',
+                height: '50px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                textAlign: 'center',
+                fontSize: '16px',
+              }}
             >
               {type === 'registration' ? 'Register Account' : 'Login'}
             </Button>
+            {/* New account link */}
+            <div style={{ textAlign: 'center', marginTop: '8px' }}>
+              <Link to="/register" style={{ color: '#1890ff' }}>
+                New account? Register here
+              </Link>
+            </div>
           </ProForm.Item>
         </LoginForm>
       </div>

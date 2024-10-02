@@ -158,7 +158,11 @@ const Login: React.FC = () => {
         }}
       >
         <LoginForm
-          logo={<img alt="logo" src="/logo.png" />}
+          contentStyle={{
+            minWidth: 280,
+            maxWidth: '75vw',
+          }}
+          logo={<img alt="logo" src="/logo.svg" />}
           title="Deena"
           subTitle={intl.formatMessage({ id: 'pages.layouts.userLayout.title' })}
           initialValues={{

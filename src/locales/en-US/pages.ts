@@ -34,7 +34,7 @@ export default {
   'pages.registration.password.required': 'please input your password !',
   'pages.registration.confirmPassword.placeholder': 'Enter Your Password Again',
   'pages.registration.confirmPassword.required': 'please re-input your password !',
-  'pages.registration.submit': 'Register Account',
+  // 'pages.registration.submit': '',
   'pages.login.phoneNumber.required': 'Please input your phone number!',
   'pages.login.phoneNumber.invalid': 'Phone number is invalid!',
   'pages.login.captcha.placeholder': 'Verification Code',

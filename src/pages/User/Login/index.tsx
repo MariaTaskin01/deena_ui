@@ -10,7 +10,7 @@ import {
   UserOutlined,
   WeiboCircleOutlined,
 } from '@ant-design/icons';
-import { LoginForm, ProForm, ProFormSelect, ProFormText } from '@ant-design/pro-components';
+import { LoginForm, ProForm, ProFormText } from '@ant-design/pro-components';
 import { FormattedMessage, Helmet, history, SelectLang, useIntl, useModel } from '@umijs/max';
 import { Alert, message, Tabs } from 'antd';
 import { createStyles } from 'antd-style';
@@ -164,7 +164,7 @@ const Login: React.FC = () => {
             minWidth: 280,
             maxWidth: '75vw',
           }}
-          logo={<img alt="logo" src="/logo.png" />}
+          logo={<img alt="logo" src="/logo.png"/>}
           title="Deena"
           subTitle={intl.formatMessage({ id: 'pages.layouts.userLayout.title' })}
           initialValues={{
@@ -202,14 +202,12 @@ const Login: React.FC = () => {
                 key: 'login',
                 label: intl.formatMessage({
                   id: 'pages.login.accountLogin.tab',
-                  defaultMessage: '账户密码登录',
                 }),
               },
               {
                 key: 'registration',
                 label: intl.formatMessage({
                   id: 'pages.login.phoneLogin.tab',
-                  defaultMessage: '手机号登录',
                 }),
               },
             ]}
@@ -219,12 +217,11 @@ const Login: React.FC = () => {
             <LoginMessage
               content={intl.formatMessage({
                 id: 'pages.login.accountLogin.errorMessage',
-                defaultMessage: '账户或密码错误(admin/ant.design)',
               })}
             />
           )}
           {type === 'login' && (
-            <div>
+            <>
               <ProFormText
                 name="username"
                 fieldProps={{
@@ -241,7 +238,6 @@ const Login: React.FC = () => {
                     message: (
                       <FormattedMessage
                         id="pages.login.username.required"
-                        defaultMessage="请输入用户名!"
                       />
                     ),
                   },
@@ -255,7 +251,6 @@ const Login: React.FC = () => {
                 }}
                 placeholder={intl.formatMessage({
                   id: 'pages.login.password.placeholder',
-                  defaultMessage: '密码: ant.design',
                 })}
                 rules={[
                   {
@@ -263,220 +258,216 @@ const Login: React.FC = () => {
                     message: (
                       <FormattedMessage
                         id="pages.login.password.required"
-                        defaultMessage="请输入密码！"
                       />
                     ),
                   },
                 ]}
               />
-            </div>
+            </>
           )}
 
           {status === 'error' && loginType === 'registration' && (
             <LoginMessage content="验证码错误" />
           )}
           {type === 'registration' && (
-            <div className="flex justify-center items-center flex-col">
-              <div className="w-[500px]">
-                <div className="grid grid-cols-2 gap-x-6 px-2 py-1">
-                  <ProFormText
-                    fieldProps={{
-                      width: 'lg',
-                      size: 'large',
-                      // prefix: <MobileOutlined />,
-                    }}
-                    name="username"
-                    label={intl.formatMessage({
-                      id: 'pages.registration.username.label',
-                    })}
-                    placeholder={intl.formatMessage({
-                      id: 'pages.registration.username.placeholder',
-                      defaultMessage: '手机号',
-                    })}
-                    rules={[
-                      {
-                        required: true,
-                        message: (
-                          <FormattedMessage
-                            id="pages.registration.username.required"
-                            defaultMessage="请输入手机号！"
-                          />
-                        ),
-                      },
-                    ]}
-                  />
-                  <ProFormText
-                    fieldProps={{
-                      size: 'large',
-                      // prefix: <MobileOutlined />,
-                    }}
-                    name="email"
-                    label={intl.formatMessage({
-                      id: 'pages.registration.email.label',
-                    })}
-                    placeholder={intl.formatMessage({
-                      id: 'pages.registration.email.placeholder',
-                      defaultMessage: '手机号',
-                    })}
-                    rules={[
-                      {
-                        required: true,
-                        message: (
-                          <FormattedMessage
-                            id="pages.registration.email.required"
-                            defaultMessage="请输入手机号！"
-                          />
-                        ),
-                      },
-                    ]}
-                  />
-                  <ProFormText
-                    fieldProps={{
-                      size: 'large',
-                      // prefix: <MobileOutlined />,
-                    }}
-                    name="studentName"
-                    label={intl.formatMessage({
-                      id: 'pages.registration.fullName.label',
-                    })}
-                    placeholder={intl.formatMessage({
-                      id: 'pages.registration.studentName.placeholder',
-                      defaultMessage: '手机号',
-                    })}
-                    rules={[
-                      {
-                        required: true,
-                        message: (
-                          <FormattedMessage
-                            id="pages.registration.studentName.required"
-                            defaultMessage="请输入手机号！"
-                          />
-                        ),
-                      },
-                    ]}
-                  />
-                  <ProFormText
-                    fieldProps={{
-                      size: 'large',
-                      // prefix: <MobileOutlined />,
-                    }}
-                    name="phone"
-                    label={intl.formatMessage({
-                      id: 'pages.registration.phone.label',
-                    })}
-                    placeholder={intl.formatMessage({
-                      id: 'pages.registration.phone.placeholder',
-                      defaultMessage: '手机号',
-                    })}
-                    rules={[
-                      {
-                        required: true,
-                        message: (
-                          <FormattedMessage
-                            id="pages.registration.phone.required"
-                            defaultMessage="请输入手机号！"
-                          />
-                        ),
-                      },
-                    ]}
-                  />
-                  <ProFormSelect
-                    fieldProps={{
-                      size: 'large',
-                      // prefix: <MobileOutlined />,
-                    }}
-                    name="User Type"
-                    label={intl.formatMessage({
-                      id: 'pages.registration.userType.label',
-                    })}
-                    placeholder={intl.formatMessage({
-                      id: 'pages.registration.userType.placeholder',
-                      defaultMessage: '手机号',
-                    })}
-                    rules={[
-                      {
-                        required: true,
-                        message: (
-                          <FormattedMessage
-                            id="pages.registration.userType.required"
-                            defaultMessage="请输入手机号！"
-                          />
-                        ),
-                      },
-                    ]}
-                    options={[
-                      {
-                        label: 'Student',
-                        value: 'STUDENT',
-                      },
-                      {
-                        label: 'Teacher',
-                        value: 'TEACHER',
-                      },
-                      {
-                        label: 'Staff',
-                        value: 'STAFF',
-                      },
-                      {
-                        label: 'Admin',
-                        value: 'ADMIN',
-                      },
-                    ]}
-                  />
-                  <ProFormText
-                    fieldProps={{
-                      size: 'large',
-                      // prefix: <MobileOutlined />,
-                    }}
-                    name="password"
-                    label={intl.formatMessage({
-                      id: 'pages.registration.password.label',
-                    })}
-                    placeholder={intl.formatMessage({
-                      id: 'pages.registration.password.placeholder',
-                      defaultMessage: '手机号',
-                    })}
-                    rules={[
-                      {
-                        required: true,
-                        message: (
-                          <FormattedMessage
-                            id="pages.registration.password.required"
-                            defaultMessage="请输入手机号！"
-                          />
-                        ),
-                      },
-                    ]}
-                  />
-                </div>
+            <>
 
-                <ProFormText
-                  fieldProps={{
-                    size: 'large',
-                    // prefix: <MobileOutlined />,
-                  }}
-                  name="confirmPassword"
-                  label={intl.formatMessage({
-                    id: 'pages.registration.confirmPassword.label',
-                  })}
-                  placeholder={intl.formatMessage({
-                    id: 'pages.registration.confirmPassword.placeholder',
-                    defaultMessage: '手机号',
-                  })}
-                  rules={[
-                    {
-                      required: true,
-                      message: (
-                        <FormattedMessage
-                          id="pages.registration.confirmPassword.required"
-                          defaultMessage="请输入手机号！"
-                        />
-                      ),
-                    },
-                  ]}
-                />
-              </div>
+            <div className="grid grid-cols-2 gap-2 px-2 py-2">
+               <ProFormText 
+                fieldProps={{
+                  height: '100vh',
+                width: '90vw',
+                  style: { width: '100%'},
+                }}
+                name="institute"
+                placeholder={intl.formatMessage({
+                  id: 'pages.registration.institute.placeholder',
+                })}
+                rules={[
+                  {
+                    required: true,
+                    message: (
+                      <FormattedMessage
+                        id="pages.registration.institute.required"
+                      />
+                    ),
+                  },
+                ]}
+              />
+
+              <ProFormText
+                fieldProps={{
+                  size: 'large',
+                  // prefix: <MobileOutlined />,
+                  style: { width: '100%'},
+                }}
+                name="branch"
+                placeholder={intl.formatMessage({
+                  id: 'pages.registration.branch.placeholder',
+                })}
+                rules={[
+                  {
+                    required: true,
+                    message: (
+                      <FormattedMessage
+                        id="pages.registration.branch.required"
+                        defaultMessage="请输入手机号！"
+                      />
+                    ),
+                  },
+                ]}
+              /> 
+              <ProFormText
+                fieldProps={{
+                  size: 'large',
+                  // prefix: <MobileOutlined />,
+                  style: { width: '100%'},
+                }}
+                name="username"
+                placeholder={intl.formatMessage({
+                  id: 'pages.registration.username.placeholder',
+                })}
+                rules={[
+                  {
+                    required: true,
+                    message: (
+                      <FormattedMessage
+                        id="pages.registration.username.required"
+                      />
+                    ),
+                  },
+                ]}
+              />
+              <ProFormText
+                fieldProps={{
+                  size: 'large',
+                  // prefix: <MobileOutlined />,
+                  style: { width: '100%'},
+                }}
+                name="email"
+                placeholder={intl.formatMessage({
+                  id: 'pages.registration.email.placeholder',
+                })}
+                rules={[
+                  {
+                    required: true,
+                    message: (
+                      <FormattedMessage
+                        id="pages.registration.email.required"
+                      />
+                    ),
+                  },
+                ]}
+              />
+              <ProFormText
+                fieldProps={{
+                  size: 'large',
+                  // prefix: <MobileOutlined />,
+                  style: { width: '100%'},
+                }}
+                name="studentName"
+                placeholder={intl.formatMessage({
+                  id: 'pages.registration.studentName.placeholder',
+                })}
+                rules={[
+                  {
+                    required: true,
+                    message: (
+                      <FormattedMessage
+                        id="pages.registration.studentName.required"
+                      />
+                    ),
+                  },
+                ]}
+              />
+              <ProFormText
+                fieldProps={{
+                  size: 'large',
+                  // prefix: <MobileOutlined />,
+                  style: { width: '100%'},
+                }}
+                name="phone"
+                placeholder={intl.formatMessage({
+                  id: 'pages.registration.phone.placeholder',
+                })}
+                rules={[
+                  {
+                    required: true,
+                    message: (
+                      <FormattedMessage
+                        id="pages.registration.phone.required"
+                      />
+                    ),
+                  },
+                ]}
+              />
+              <ProFormText
+                fieldProps={{
+                  size: 'large',
+                  // prefix: <MobileOutlined />,
+                  style: { width: '100%'},
+                }}
+                name="roll"
+                placeholder={intl.formatMessage({
+                  id: 'pages.registration.roll.placeholder',
+                })}
+                rules={[
+                  {
+                    required: true,
+                    message: (
+                      <FormattedMessage
+                        id="pages.registration.roll.required"
+                      />
+                    ),
+                  },
+                ]}
+              />
+              <ProFormText
+                fieldProps={{
+                  size: 'large',
+                  // prefix: <MobileOutlined />,
+                  style: { width: '100%'},
+                }}
+                name="password"
+                placeholder={intl.formatMessage({
+                  id: 'pages.registration.password.placeholder',
+                })}
+                rules={[
+                  {
+                    required: true,
+                    message: (
+                      <FormattedMessage
+                        id="pages.registration.password.required"
+                      />
+                    ),
+                  },
+                ]}
+              />
+
             </div>
+
+            <ProFormText
+                fieldProps={{
+                  size: 'large',
+                  // prefix: <MobileOutlined />,
+                  
+                }}
+                name="confirmPassword"
+                placeholder={intl.formatMessage({
+                  id: 'pages.registration.confirmPassword.placeholder',
+                })}
+                rules={[
+                  {
+                    required: true,
+                    message: (
+                      <FormattedMessage
+                        id="pages.registration.confirmPassword.required"
+                      />
+                    ),
+                  },
+                ]}
+              />
+            </>
           )}
           <ProForm.Item>
             <Button

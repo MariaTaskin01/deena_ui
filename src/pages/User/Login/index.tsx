@@ -202,14 +202,12 @@ const Login: React.FC = () => {
                 key: 'login',
                 label: intl.formatMessage({
                   id: 'pages.login.accountLogin.tab',
-                  defaultMessage: '账户密码登录',
                 }),
               },
               {
                 key: 'registration',
                 label: intl.formatMessage({
                   id: 'pages.login.phoneLogin.tab',
-                  defaultMessage: '手机号登录',
                 }),
               },
             ]}
@@ -219,7 +217,6 @@ const Login: React.FC = () => {
             <LoginMessage
               content={intl.formatMessage({
                 id: 'pages.login.accountLogin.errorMessage',
-                defaultMessage: '账户或密码错误(admin/ant.design)',
               })}
             />
           )}
@@ -241,7 +238,6 @@ const Login: React.FC = () => {
                     message: (
                       <FormattedMessage
                         id="pages.login.username.required"
-                        defaultMessage="请输入用户名!"
                       />
                     ),
                   },
@@ -255,7 +251,6 @@ const Login: React.FC = () => {
                 }}
                 placeholder={intl.formatMessage({
                   id: 'pages.login.password.placeholder',
-                  defaultMessage: '密码: ant.design',
                 })}
                 rules={[
                   {
@@ -263,7 +258,6 @@ const Login: React.FC = () => {
                     message: (
                       <FormattedMessage
                         id="pages.login.password.required"
-                        defaultMessage="请输入密码！"
                       />
                     ),
                   },
@@ -288,7 +282,6 @@ const Login: React.FC = () => {
                 name="institute"
                 placeholder={intl.formatMessage({
                   id: 'pages.registration.institute.placeholder',
-                  defaultMessage: '手机号',
                 })}
                 rules={[
                   {
@@ -296,7 +289,6 @@ const Login: React.FC = () => {
                     message: (
                       <FormattedMessage
                         id="pages.registration.institute.required"
-                        defaultMessage="请输入手机号！"
                       />
                     ),
                   },
@@ -312,7 +304,6 @@ const Login: React.FC = () => {
                 name="branch"
                 placeholder={intl.formatMessage({
                   id: 'pages.registration.branch.placeholder',
-                  defaultMessage: '手机号',
                 })}
                 rules={[
                   {
@@ -335,7 +326,6 @@ const Login: React.FC = () => {
                 name="username"
                 placeholder={intl.formatMessage({
                   id: 'pages.registration.username.placeholder',
-                  defaultMessage: '手机号',
                 })}
                 rules={[
                   {
@@ -343,7 +333,6 @@ const Login: React.FC = () => {
                     message: (
                       <FormattedMessage
                         id="pages.registration.username.required"
-                        defaultMessage="请输入手机号！"
                       />
                     ),
                   },
@@ -358,7 +347,6 @@ const Login: React.FC = () => {
                 name="email"
                 placeholder={intl.formatMessage({
                   id: 'pages.registration.email.placeholder',
-                  defaultMessage: '手机号',
                 })}
                 rules={[
                   {
@@ -366,7 +354,6 @@ const Login: React.FC = () => {
                     message: (
                       <FormattedMessage
                         id="pages.registration.email.required"
-                        defaultMessage="请输入手机号！"
                       />
                     ),
                   },
@@ -381,7 +368,6 @@ const Login: React.FC = () => {
                 name="studentName"
                 placeholder={intl.formatMessage({
                   id: 'pages.registration.studentName.placeholder',
-                  defaultMessage: '手机号',
                 })}
                 rules={[
                   {
@@ -389,7 +375,6 @@ const Login: React.FC = () => {
                     message: (
                       <FormattedMessage
                         id="pages.registration.studentName.required"
-                        defaultMessage="请输入手机号！"
                       />
                     ),
                   },
@@ -404,7 +389,6 @@ const Login: React.FC = () => {
                 name="phone"
                 placeholder={intl.formatMessage({
                   id: 'pages.registration.phone.placeholder',
-                  defaultMessage: '手机号',
                 })}
                 rules={[
                   {
@@ -412,7 +396,6 @@ const Login: React.FC = () => {
                     message: (
                       <FormattedMessage
                         id="pages.registration.phone.required"
-                        defaultMessage="请输入手机号！"
                       />
                     ),
                   },
@@ -427,7 +410,6 @@ const Login: React.FC = () => {
                 name="roll"
                 placeholder={intl.formatMessage({
                   id: 'pages.registration.roll.placeholder',
-                  defaultMessage: '手机号',
                 })}
                 rules={[
                   {
@@ -435,7 +417,6 @@ const Login: React.FC = () => {
                     message: (
                       <FormattedMessage
                         id="pages.registration.roll.required"
-                        defaultMessage="请输入手机号！"
                       />
                     ),
                   },
@@ -450,7 +431,6 @@ const Login: React.FC = () => {
                 name="password"
                 placeholder={intl.formatMessage({
                   id: 'pages.registration.password.placeholder',
-                  defaultMessage: '手机号',
                 })}
                 rules={[
                   {
@@ -458,7 +438,6 @@ const Login: React.FC = () => {
                     message: (
                       <FormattedMessage
                         id="pages.registration.password.required"
-                        defaultMessage="请输入手机号！"
                       />
                     ),
                   },
@@ -476,7 +455,6 @@ const Login: React.FC = () => {
                 name="confirmPassword"
                 placeholder={intl.formatMessage({
                   id: 'pages.registration.confirmPassword.placeholder',
-                  defaultMessage: '手机号',
                 })}
                 rules={[
                   {
@@ -484,7 +462,6 @@ const Login: React.FC = () => {
                     message: (
                       <FormattedMessage
                         id="pages.registration.confirmPassword.required"
-                        defaultMessage="请输入手机号！"
                       />
                     ),
                   },
